@@ -1,0 +1,71 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true 
+        interval = 5
+	markup = "pango"
+}
+
+order += "path_exists VPN"
+order += "ipv6"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "disk /"
+order += "load, cpu_temperature 0"
+order += "cpu_temperature 0"
+order += "memory"
+order += "battery all"
+order += "tztime local"
+
+path_exists VPN {
+	format_down = "<span color='#F83212'> VPN</span>"
+	format = "<span color='#478C5C'> VPN</span>"
+	path = "/proc/sys/net/ipv4/conf/wg-mullvad"
+}
+
+wireless _first_ {
+        format_up = "<span color='#B99095'>%quality at %essid (%ip)</span>"
+        format_down = "<span color='#B99095'>睊 down</span>"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "" # "E: down"
+}
+
+ipv6 {
+	format_up = "ipv6 %ip (%speed)"
+	format_down = ""
+}
+
+battery all {
+        format = "<span color='#B5E5CF'> %status %percentage %remaining</span>"
+}
+
+disk "/" {
+        format = "<span color='#FFAEBC'> %avail</span>"
+}
+
+load {
+        format = "<span color='#A0E7E5'>﬙ %1min</span>"
+}
+
+cpu_temperature 0 {
+	format = "<span color='#A0E7E5'>%degrees ºC</span>"
+}
+
+memory {
+        format = "<span color='#B4F8C8'> %used (%available)</span>"
+#        threshold_degraded = "1G"
+#        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = ' %d/%m/%y  %H:%M '
+}
