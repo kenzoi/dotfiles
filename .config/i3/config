@@ -33,9 +33,12 @@ exec --no-startup-id nm-applet
 # Start flameshot to screenshot
 exec --no-startup-id flameshot
 
-# Start Picom compositor
-
-exec --no-startup-id picom -b --config ~/.config/picom
+# Picom compositor as fallback in case of tearing
+#
+# When activated was causing an increase of CPU usage during Zoom calls.
+# Tearing problem solved configuring xorg.conf.
+#
+# exec --no-startup-id picom -b --config ~/.config/picom
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

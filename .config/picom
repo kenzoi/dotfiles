@@ -1,12 +1,12 @@
-#https://www.reddit.com/user/radolkin/ | https://terminaldopenguin.blogspot.com/2020/06/resolvendo-tearing-com-o-picom.html
+# Not used by default.
+# Stored as fallback in case of video tearing.
+
+# Based on this config: https://www.reddit.com/user/radolkin/ | https://terminaldopenguin.blogspot.com/2020/06/resolvendo-tearing-com-o-picom.html
 
 backend = "glx";
 
 glx-no-stencil = true;
 glx-no-rebind-pixmap = true;
-use-damage = true;
-xrender-sync-fence = true;
-refresh-rate = 0;
 vsync = true;
 
 mark-wmwin-focused = true;

@@ -114,11 +114,11 @@ fi
 
 # ALIASES
 
-alias display1='xrandr --auto'
-alias display2='xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --off'
-alias display12='xrandr --auto --output HDMI-1 --mode 1920x1080 --right-of eDP-1'
+alias display1='xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-1-1 --off'
+alias display2='xrandr --output HDMI-1-1 --mode 1920x1080 --output eDP-1-1 --off'
+alias display12='xrandr --auto --output HDMI-1-1 --mode 1920x1080 --right-of eDP-1-1'
 alias r='ranger_cd'
-alias picom='picom --config=/home/kenzo/.config/picom.config -b'
+alias picom='picom --config=/home/kenzo/.config/picom -b'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # shellcheck shell=sh
