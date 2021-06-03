@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+# set Bash to replace directory names when performing filename completion. E.g. cd $HOME/fil <TAB> becomes cd /home/user/filename 
+# shopt -s direxpand
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -16,8 +19,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=2000
+HISTFILESIZE=100000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -114,12 +117,17 @@ fi
 
 # ALIASES
 
+alias rapp='npx create-react-app client'
 alias display1='xrandr --output eDP-1-1 --mode 1920x1080 --output HDMI-1-1 --off'
 alias display2='xrandr --output HDMI-1-1 --mode 1920x1080 --output eDP-1-1 --off'
 alias display12='xrandr --auto --output HDMI-1-1 --mode 1920x1080 --right-of eDP-1-1'
 alias r='ranger_cd'
 alias picom='picom --config=/home/kenzo/.config/picom -b'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias mongod='mongod --dbpath .mongodb/'
+
+# make grep highlight results using color
+alias grep='grep --color=auto'
 
 # shellcheck shell=sh
 
@@ -142,6 +150,11 @@ ranger_cd() {
     rm -f -- "$temp_file"
 }
 
+
+# FZF
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/completion.bash
 
 # Starship 
 
