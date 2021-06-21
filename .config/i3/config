@@ -51,7 +51,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -359,3 +360,4 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
+exec --no-startup-id feh --bg-scale /home/kenzo/Pictures/Wallpapers/elliott-engelmann-DjlKxYFJlTc-unsplash.jpg

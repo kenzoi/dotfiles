@@ -129,6 +129,7 @@ alias mongod='mongod --dbpath .mongodb/'
 # make grep highlight results using color
 alias grep='grep --color=auto'
 
+export TERMINAL=kitty
 # shellcheck shell=sh
 
 # Compatible with ranger 1.4.2 through 1.9.*
