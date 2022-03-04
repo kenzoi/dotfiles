@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:FiraMono Nerd Font 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -33,12 +33,16 @@ exec --no-startup-id nm-applet
 # Start flameshot to screenshot
 exec --no-startup-id flameshot
 
+# Start pasystray volume/pulseaudio tray status and control
+exec --no-startup-id pasystray
+
 # Picom compositor as fallback in case of tearing
 #
 # When activated was causing an increase of CPU usage during Zoom calls.
 # Tearing problem solved configuring xorg.conf.
 #
-# exec --no-startup-id picom -b --config ~/.config/picom
+# TESTING - CHECK CPU USAGE DURANTE TEAMS CALLS
+exec --no-startup-id picom -b --config ~/.config/picom
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -64,6 +68,15 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# Screenlock
+bindsym control+mod1+l exec --no-startup-id i3lock -t -i ~/Pictures/Wallpapers/pexels-travis-blessing-1363876.png && sleep 1 && xset dpms force standby 
+
+# Sleep
+bindsym control+mod1+s exec --no-startup-id i3lock -t -i ~/Pictures/Wallpapers/pexels-travis-blessing-1363876.png && sleep 1 && systemctl suspend
+
+# Printscreen
+bindsym Print exec flameshot gui
 
 # change focus
 bindsym $mod+j focus left
@@ -203,7 +216,8 @@ bindsym $mod+minus scratchpad show
 # finds out, if available)
 bar {
         status_command i3status
-	font pango:MesloLGS NF 9
+	font pango:FiraMono Nerd Font
+	tray_output eDP-1
 	tray_padding 4 
 colors {
 		# Colors provided by https://gist.github.com/thepont/3f71150cec091bae5ef304e28e3d9097
@@ -360,4 +374,4 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
-exec --no-startup-id feh --bg-scale /home/kenzo/Pictures/Wallpapers/elliott-engelmann-DjlKxYFJlTc-unsplash.jpg
+exec --no-startup-id feh --bg-scale /home/kenzo/Pictures/Wallpapers/clay-banks-u27Rrbs9Dwc-unsplash.jpg
